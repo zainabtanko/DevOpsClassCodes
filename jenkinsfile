@@ -12,27 +12,27 @@ pipeline {
         }
         stage('compile') {
             steps {
-                bat 'mvn compile'
+                sh 'mvn compile'
             }
         }
         stage('code_review') {
             steps {
-                bat 'mvn -P metrics pmd:pmd'
+                sh 'mvn -P metrics pmd:pmd'
             }
         }
         stage('unit_test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
         stage('metric_check') {
             steps{
-                bat 'mvn cobertura:cobertura -D cobertura.report.format=xml'
+                sh 'mvn cobertura:cobertura -D cobertura.report.format=xml'
             }
         }
         stage('package') {
             steps{
-                bat 'mvn package'
+                sh 'mvn package'
             }
         }
     }
