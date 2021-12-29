@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'yakasaii'
+        maven 'bala'
     }
 
     stages {
